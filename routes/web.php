@@ -69,3 +69,38 @@ Route::get('beli/{makan?}/{minum?}/{harga?}',function($mkn=null, $mnm=null, $hrg
 	}
 
 });
+
+Route::get('/testmodel', function() { 
+	$query = App\Post::all();
+	return $query; 
+});
+Route::get('/testmodel2', function() { 
+	$query = App\Post::find(3);
+	return $query; 
+});
+Route::get('/testmodel3', function() { 
+	$query = App\Post::where('title','like','%7 Amalan Pembuka Jodoh%')->get();
+	return $query; 
+});
+Route::get('/testmodel4', function() { 
+	$query = App\Post::find(3); 
+	$query->title = "Amalan Pembuka Jodoh"; 
+	$query->save(); 
+	return $query;
+});
+Route::get('/testmodel5', function() { 
+	$post = App\Post::find(3); 
+	$post->delete(); 
+});
+Route::get('/testmodel6', function() { 
+	$query = new App\Post; 
+	$query->title = "Membangun Visi Misi Keluarga"; 
+	$query->content = "Saling Mencintai"; 
+	$query->save(); 
+	return $query;
+});
+
+Route::get('/testgaji', function() { 
+	$query = App\Penggajian::all();
+	return $query; 
+});
