@@ -49,3 +49,23 @@ Route::get('pesan/{makan}/{minum}/{harga}',function($mkn, $mnm, $hrg){
 // 	return view('jrs');
 // });
 
+// Route Optional Parameter
+Route::get('halo/{nama?}',function($nama='Nurhadi Aldo'){
+	return 'Haloo Nama Saya Adalah '.$nama;
+});
+
+Route::get('beli/{makan?}/{minum?}/{harga?}',function($mkn=null, $mnm=null, $hrg=null){
+	if (isset($mkn)) {
+		echo 'Anda Memesan ' .$mkn;
+	}
+	if (isset($mnm)) {
+		echo ' Dan ' .$mnm;
+	}
+	if (isset($hrg)) {
+		echo ' Dengan Harga ' .$hrg;
+	}
+	if ($mkn == null && $mnm == null && $hrg == null) {
+		echo 'Anda Belum Memesan.';
+	}
+
+});
