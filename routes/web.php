@@ -104,3 +104,30 @@ Route::get('/testgaji', function() {
 	$query = App\Penggajian::all();
 	return $query; 
 });
+
+Route::get('gaji-1', function() { 
+	$query = App\Penggajian::where('nama','=','anisa')->get();
+	return $query; 
+});
+Route::get('gaji-2', function() { 
+	$query = App\Penggajian::select('id','nama','agama')
+	->where('agama', '=' , 'islam')
+	->get();
+	return $query; 
+});
+Route::get('gaji/{id}', function($id) { 
+	$query = App\Penggajian::find($id);
+	return $query; 
+});
+Route::get('tambah-data-gaji', function()
+{
+	$gaji = New App\Penggajian();
+	$gaji->nama = 'Indah Mambo';
+	$gaji->jabatan = 'Sekretaris';
+	$gaji->jk = 'Perempuan';
+	$gaji->alamat = 'Bojong Honey';
+	$gaji->agama = 'Islam';
+	$gaji->total_gaji = '500000';
+	$gaji->save();
+	return $gaji;
+});
