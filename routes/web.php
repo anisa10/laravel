@@ -131,3 +131,36 @@ Route::get('tambah-data-gaji', function()
 	$gaji->save();
 	return $gaji;
 });
+
+Route::get('haloo', 'LaravelController@hallo');
+Route::get('world', 'LaravelController@dunia');
+Route::get('school', 'LaravelController@sekolah');
+Route::get('class', 'LaravelController@kelas');
+Route::get('adress', 'LaravelController@alamat');
+Route::get('name', 'LaravelController@nama');
+Route::get('umur', 'LaravelController@umr');
+Route::get('word', 'LaravelController@dunia');
+Route::get('word', 'LaravelController@dunia');
+Route::get('word', 'LaravelController@dunia');
+
+Route::get('kucing/{warna?}', 'LaravelController@jeniskucing');
+Route::get('belii/{makan?}/{harga?}','LaravelController@beli');
+
+// CRUD BOOK
+Route::get('book' , 'BookController@index');
+Route::get('create-book' , 'BookController@create');
+Route::get('book/{id}' , 'BookController@show');
+Route::get('book-edit/{id}/{jdl}' , 'BookController@edit');
+Route::get('book-delete/{id}' , 'BookController@delete');
+Route::get('latihan/{id}','BookController@latihan');
+Route::get('latihan2/{id}','BookController@latihan2');
+
+// Artikel
+// Route::get('artikel', 'ArtikelController@index');
+// Route::get('artikel/create', 'ArtikelController@create');
+// Route::get('artikel/{id}', 'ArtikelController@show');
+// Route::get('artikel/{id}/edit', 'ArtikelController@edit');
+// Route::PUT('artikel/{id}', 'ArtikelController@update');
+// Route::DELETE('artikel/{id}', 'ArtikelController@destroy');
+
+Route::resource('artikel', 'ArtikelController');
